@@ -1,0 +1,44 @@
+{
+  "name": "netivo/wc-importer",
+  "description": "Netivo Module for WooCommerce Built-in Importer Extension",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "version": "1.0",
+  "authors": [
+    {
+      "name": "netivo",
+      "email": "biuro@netivo.pl"
+    },
+    {
+      "name": "Mikołaj Stankiewicz",
+      "email": "mikolaj.stankiewicz@netivo.pl"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packagist.netivo.pl"
+    }
+  ],
+  "require": {
+    "php": ">=8.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Netivo\\Module\\WooCommerce\\Importer\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Netivo\\Module\\WooCommerce\\Importer\\Test\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": [
+      "@php -d zend.enable_gc=0 vendor/bin/phpunit"
+    ]
+  }
+}
