@@ -42,9 +42,14 @@ class Module {
 	}
 
 	public function __construct() {
+		if ( empty( self::$instance ) ) {
+			self::$instance = $this;
+		}
 		if ( is_admin() ) {
 			$this->init_config();
-			new Importer();
+			if ( ! empty( $this->config ) ) {
+				new Importer();
+			}
 		}
 	}
 
