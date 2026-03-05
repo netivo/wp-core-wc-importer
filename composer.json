@@ -1,7 +1,7 @@
 {
   "name": "netivo/wc-importer",
   "description": "Netivo Module for WooCommerce Built-in Importer Extension",
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "license": "proprietary",
   "version": "1.0",
   "authors": [

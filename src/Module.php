@@ -41,15 +41,14 @@ class Module {
 		return self::get_instance()->get_config();
 	}
 
-	public function __construct() {
-		if ( empty( self::$instance ) ) {
-			self::$instance = $this;
-		}
+	protected function __construct() {
+		$this->init_config();
+
+	}
+
+	public function init() {
 		if ( is_admin() ) {
-			$this->init_config();
-			if ( ! empty( $this->config ) ) {
-				new Importer();
-			}
+			new Importer();
 		}
 	}
 
