@@ -32,7 +32,7 @@ class Importer {
 		}
 	}
 
-	protected function add_columns( $options ) {
+	public function add_columns( $options ) {
 		foreach ( Module::get_config_array() as $key => $config ) {
 			$options[ $key ] = $config['label'];
 		}
@@ -40,7 +40,7 @@ class Importer {
 		return $options;
 	}
 
-	protected function add_export_custom_meta( $value, $product ) {
+	public function add_export_custom_meta( $value, $product ) {
 		$current_filter = current_filter();
 		$column_key     = str_replace( 'woocommerce_product_export_product_column_', '', $current_filter );
 
@@ -53,7 +53,7 @@ class Importer {
 		return $value;
 	}
 
-	function add_column_to_mapping_screen( $columns ) {
+	public function add_column_to_mapping_screen( $columns ) {
 		foreach ( Module::get_config_array() as $key => $config ) {
 			$columns[ $config['label'] ] = $key;
 		}
@@ -61,7 +61,7 @@ class Importer {
 		return $columns;
 	}
 
-	function process_import( $object, $data ) {
+	public function process_import( $object, $data ) {
 		foreach ( Module::get_config_array() as $key => $config ) {
 			if ( ! empty( $data[ $key ] ) ) {
 				$object->update_meta_data( $config['meta_key'], $data[ $key ] );
